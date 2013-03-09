@@ -1,12 +1,13 @@
 ---
-layout:default
-title:优美的代码
+layout: default
+title: 优美的代码
 ---
+
 #代码分析
 
 ##这是一段HTML5的file access代码，我觉得这段代太牛逼了。。。慢慢分析！
 
-{% highlight javaScript %}
+{% highlight java %}
 (function(){
       var cache = {};
 

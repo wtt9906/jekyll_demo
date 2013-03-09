@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+		* Author: wtt
+		-->
+		<meta charset="utf-8" />
+
+		<title>优美的代码</title>
+	   	<link rel="stylesheet" href="http://wtt9906.github.com/jekyll_demo/css/pygments.css" type="text/css" />
+	   	<link rel="stylesheet" href="http://wtt9906.github.com/jekyll_demo/js/prettify/prettify.css" type="text/css" />
+	   	<script src="http://wtt9906.github.com/jekyll_demo/js/jquery-1.8.3.js"></script>
+	</head>
+	<body>
+		<h1 id='id3'>代码分析</h1>
+
+<h2 id='html5file_access'>这是一段HTML5的file access代码，我觉得这段代太牛逼了。。。慢慢分析！</h2>
+<div class='highlight'><pre><code class='java'><span class='o'>(</span><span class='n'>function</span><span class='o'>(){</span>
+      <span class='n'>var</span> <span class='n'>cache</span> <span class='o'>=</span> <span class='o'>{};</span>
+
+      <span class='k'>this</span><span class='o'>.</span><span class='na'>tmpl</span> <span class='o'>=</span> <span class='n'>function</span> <span class='n'>tmpl</span><span class='o'>(</span><span class='n'>str</span><span class='o'>,</span> <span class='n'>data</span><span class='o'>){</span>
+        <span class='c1'>// Figure out if we&#39;re getting a template, or if we need to</span>
+        <span class='c1'>// load the template - and be sure to cache the result.</span>
+        <span class='n'>var</span> <span class='n'>fn</span> <span class='o'>=</span> <span class='o'>!/</span><span class='err'>\</span><span class='n'>W</span><span class='o'>/.</span><span class='na'>test</span><span class='o'>(</span><span class='n'>str</span><span class='o'>)</span> <span class='o'>?</span>
+          <span class='n'>cache</span><span class='o'>[</span><span class='n'>str</span><span class='o'>]</span> <span class='o'>=</span> <span class='n'>cache</span><span class='o'>[</span><span class='n'>str</span><span class='o'>]</span> <span class='o'>||</span>
+            <span class='n'>tmpl</span><span class='o'>(</span><span class='n'>document</span><span class='o'>.</span><span class='na'>getElementById</span><span class='o'>(</span><span class='n'>str</span><span class='o'>).</span><span class='na'>innerHTML</span><span class='o'>)</span> <span class='o'>:</span>
+
+          <span class='c1'>// Generate a reusable function that will serve as a template</span>
+          <span class='c1'>// generator (and which will be cached).</span>
+          <span class='k'>new</span> <span class='nf'>Function</span><span class='o'>(</span><span class='s'>&quot;obj&quot;</span><span class='o'>,</span>
+            <span class='s'>&quot;var p=[],print=function(){p.push.apply(p,arguments);};&quot;</span> <span class='o'>+</span>
+
+            <span class='c1'>// Introduce the data as local variables using with(){}</span>
+            <span class='s'>&quot;with(obj){p.push(&#39;&quot;</span> <span class='o'>+</span>
+
+            <span class='c1'>// Convert the template into pure JavaScript</span>
+            <span class='n'>str</span>
+              <span class='o'>.</span><span class='na'>replace</span><span class='o'>(/[</span><span class='err'>\</span><span class='n'>r</span><span class='err'>\</span><span class='n'>t</span><span class='err'>\</span><span class='n'>n</span><span class='o'>]/</span><span class='n'>g</span><span class='o'>,</span> <span class='s'>&quot; &quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>split</span><span class='o'>(</span><span class='s'>&quot;&lt;%&quot;</span><span class='o'>).</span><span class='na'>join</span><span class='o'>(</span><span class='s'>&quot;\t&quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>replace</span><span class='o'>(/((^|%&gt;)[^</span><span class='err'>\</span><span class='n'>t</span><span class='o'>]*)</span><span class='err'>&#39;</span><span class='o'>/</span><span class='n'>g</span><span class='o'>,</span> <span class='s'>&quot;$1\r&quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>replace</span><span class='o'>(/</span><span class='err'>\</span><span class='n'>t</span><span class='o'>=(.*?)%&gt;/</span><span class='n'>g</span><span class='o'>,</span> <span class='s'>&quot;&#39;,$1,&#39;&quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>split</span><span class='o'>(</span><span class='s'>&quot;\t&quot;</span><span class='o'>).</span><span class='na'>join</span><span class='o'>(</span><span class='s'>&quot;&#39;);&quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>split</span><span class='o'>(</span><span class='s'>&quot;%&gt;&quot;</span><span class='o'>).</span><span class='na'>join</span><span class='o'>(</span><span class='s'>&quot;p.push(&#39;&quot;</span><span class='o'>)</span>
+              <span class='o'>.</span><span class='na'>split</span><span class='o'>(</span><span class='s'>&quot;\r&quot;</span><span class='o'>).</span><span class='na'>join</span><span class='o'>(</span><span class='s'>&quot;\\&#39;&quot;</span><span class='o'>)</span>
+          <span class='o'>+</span> <span class='s'>&quot;&#39;);}return p.join(&#39;&#39;);&quot;</span><span class='o'>);</span>
+
+        <span class='c1'>// Provide some basic currying to the user</span>
+        <span class='k'>return</span> <span class='n'>data</span> <span class='o'>?</span> <span class='n'>fn</span><span class='o'>(</span> <span class='n'>data</span> <span class='o'>)</span> <span class='o'>:</span> <span class='n'>fn</span><span class='o'>;</span>
+      <span class='o'>};</span>
+<span class='o'>})();</span>
+</code></pre></div>
+	<script type="text/javascript">
+ 			$('pre').addClass('prettyprint linenums') ;
+ 			$.getScript('http://wtt9906.github.com/jekyll_demo/js/prettify/prettify.js',function(){prettyPrint()});
+		</script>
+	</body>
+</html>

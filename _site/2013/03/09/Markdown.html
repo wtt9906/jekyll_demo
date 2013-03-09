@@ -6,12 +6,105 @@
 		-->
 		<meta charset="utf-8" />
 
-		<title>Markdown</title>
+		<title>第一个md&&问题记录</title>
+	   	<link rel="stylesheet" href="http://wtt9906.github.com/jekyll_demo/css/pygments.css" type="text/css" />
 	   	<link rel="stylesheet" href="http://wtt9906.github.com/jekyll_demo/js/prettify/prettify.css" type="text/css" />
 	   	<script src="http://wtt9906.github.com/jekyll_demo/js/jquery-1.8.3.js"></script>
 	</head>
 	<body>
-		<h2 id='h2_'>h2 的标题</h2>
+		<h1 id='md'>我的第一个md</h1>
+
+<h4 id='id1'>顺便记录一下搭这个平台的问题</h4>
+
+<ul>
+<li>
+<p>按照 <a title='Title' href='http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html'>阮一峰老师的这篇博客</a>搭了一个框架</p>
+</li>
+
+<li>
+<p>框架是1月份弄的，结果到三月才继续。。。我都是改一点发布一次，直接用github试，直到github发给我一封邮件，说built错误了。。。我才觉得是应该在本地搭一个测试环境，google了一下，发现是这么个关系</p>
+
+<blockquote>
+<p>先要有rvm-&gt;ruby-&gt;jeklly-&gt;本地调试。</p>
+</blockquote>
+
+<blockquote>
+<p>安装ruby（mac自带了，但是版本老，大家都说要更新，那我就装吧）教程有很多 但是我成功是按照  <a title='Title' href='http://www.hoowolf.net/2012/03/29/installing-ruby-on-rails-on-mac-os-x-lion/'>这篇博客</a>来的，后来发现这个博主这么年轻，还是我最喜欢用的美颜相机团队的，于是偷偷关注了</p>
+</blockquote>
+
+<blockquote>
+<p>然后按照  <a title='Title' href='http://luchanghong.com/web/2012/09/01/start-write-blog-on-github.html'>这篇博客</a> 说的本地发布。。。但是。。。但是。。。好像因为我的_config.yml里的base_url这个属性不对，如果直接用‘/’，首页可以访问，但是index.html的文章地址就总是不对；如果base_url写jeklly_demo(文件夹的名字)，本地就访问不了，但是发布到github上都是正常的。。。</p>
+</blockquote>
+</li>
+</ul>
+
+<p>所以总之我的本地测试还有问题。。。我google了一下问题，也没有找到明了的原因</p>
+
+<p>接下来静下来看看jeklly到底是怎么回事，自己解决吧</p>
+<hr />
+<h2 id='md'>以下是md的一些应用实践</h2>
+
+<h2 id='h2_'>h2 的标题</h2>
+
+<h2 id='_h2'>这也是一个 H2</h2>
+<pre>
+	测试区块 pre
+</pre><table>
+    <tr>
+        <td>Foo</td>
+    </tr>
+</table>
+<p>中间夹着一段代码<code>alert("123")</code>夹着一段代码</p>
+
+<pre><code>这是一个代码区块,用一个tab即可。</code></pre>
+
+<p>Use the <code>printf()</code> function.</p>
+
+<p><code>There is a literal backtick (`) here.</code></p>
+<a href='http://wowubuntu.com/markdown/#editor'>md的学习参照</a>
+<p>This is <a title='Title' href='http://wowubuntu.com/markdown/#editor'>md的学习参照</a> inline link.</p>
+
+<blockquote>
+<p>这是尖括号的内容</p>
+</blockquote>
+
+<blockquote>
+<p>两个回车是换行,一个回车是空格</p>
+</blockquote>
+
+<blockquote>
+<h2 id='id2'>这是一个标题。</h2>
+
+<p>1. 这是第一行列表项。 2. 这是第二行列表项。</p>
+
+<p>给出一些例子代码：</p>
+
+<pre><code>return shell_exec(&quot;echo $input | $markdown_script&quot;);</code></pre>
+</blockquote>
+
+<ul>
+<li>red</li>
+
+<li>green</li>
+
+<li><strong>blue，加粗</strong></li>
+</ul>
+
+<p>I get 10 times more traffic from <a title='Google' href='http://google.com/'>Google</a> than from <a title='Yahoo Search' href='http://search.yahoo.com/'>Yahoo</a> or <a title='MSN Search' href='http://search.msn.com/'>MSN</a>.</p>
+<hr />
+<pre><code>public class HelloWorld {
+	public static void main(String args[]) {
+  		System.out.println(&quot;Hello World!&quot;);
+	}
+}</code></pre>
+
+<p>测试pygments 没有用。。。不知道怎么回事 &gt;_&lt;</p>
+<div class='highlight'><pre><code class='java'><span class='kd'>public</span> <span class='kd'>class</span> <span class='nc'>HelloWorld</span> <span class='o'>{</span>
+    <span class='kd'>public</span> <span class='kd'>static</span> <span class='kt'>void</span> <span class='nf'>main</span><span class='o'>(</span><span class='n'>String</span> <span class='n'>args</span><span class='o'>[])</span> <span class='o'>{</span>
+      <span class='n'>System</span><span class='o'>.</span><span class='na'>out</span><span class='o'>.</span><span class='na'>println</span><span class='o'>(</span><span class='s'>&quot;Hello World!&quot;</span><span class='o'>);</span>
+    <span class='o'>}</span>
+<span class='o'>}</span>
+</code></pre></div>
 	<script type="text/javascript">
  			$('pre').addClass('prettyprint linenums') ;
  			$.getScript('http://wtt9906.github.com/jekyll_demo/js/prettify/prettify.js',function(){prettyPrint()});
