@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-<link rel="stylesheet" href="/js/prettify/prettify.css" />
+<link rel="stylesheet" href="../js/prettify/prettify.css" />
+<script type="text/javascript"  src="../js/prettify/prettify.js"></script>
 <script type="text/javascript">
- $.getScript('/js/prettify/prettify.js',function(){prettyPrint()});
+ $('pre').addClass('prettyprint linenums') //添加Google code Hight需要的class
+ $.getScript('../js/prettify/prettify.js',function(){prettyPrint()});
 </script>
