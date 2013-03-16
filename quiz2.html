@@ -32,18 +32,6 @@
 		context.fillText("B(200,100)",190,90);
 		context.fillText("C(100,200)",90,190);
 		context.fillText("D(200,200)",190,190);
-		
-	});
-	radius = 5;
-	function drawCricle(point){
-		context.beginPath();
-		context.arc(point.x,point.y,radius,0,Math.PI*2,false);
-		//context.closePath();
-		//context.strokeStyle = "#000";
-		context.stroke();
-		context.fillStyle = "red";
-		context.fill();
-
 
 		context.beginPath();
 		var top = topPoint();
@@ -58,6 +46,20 @@
 
 		context.strokeStyle = "#000";
 		context.stroke();
+		
+	});
+	radius = 5;
+	function drawCricle(point){
+		context.beginPath();
+		context.arc(point.x,point.y,radius,0,Math.PI*2,false);
+		//context.closePath();
+		//context.strokeStyle = "#000";
+		context.stroke();
+		context.fillStyle = "red";
+		context.fill();
+
+
+		
 
 	}
 	function topPoint(){//画顶点
