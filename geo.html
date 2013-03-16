@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv = "Content-Type" content = "text/html;charset = utf-8"/>
+	<title>地理位置</title>
+	<script src="js/modernizr.custom.52988.js"></script>
+	<script src="js/jquery-1.8.3.js"></script>
+	
+</head>
+<body>
+	<p id="demo">Click the button to get your position:</p>
+	<button onclick="get_location()">Try It</button>
+	<div id="mapholder"></div>
+	<div id="test"></div>
+
+	<script type="text/javascript">
+	function get_location(){
+		if(Modernizr.geolocation){
+			navigator.geolocation.getCurrentPosition(show_map,handle_error);
+		}
+	}
+	function show_map(position){
+		var latlon=position.coords.latitude+","+position.coords.longitude;
+
+		var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
+		+latlon+"&zoom=14&size=400x300&sensor=false";
+		
+		var $img = $("<img></img>");
+		$img.attr("src",img_url);
+		$('#test').append($img);
+
+		
+		//document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
+
+		/*  geo.js
+		$("#geo-wrapper").css({'width':'320px','height':'350px'});
+		var map = new GMap2(document.getElementById("geo-wrapper"));
+		var center = new GLatLng(log.coords.latitude,loc.coords.longitude);
+		map.setCenter(center,14);
+		map.addControl(new GSmallMapControl());
+		map.addControl(new GMapTypeControl());
+		map.addOverlay(new GMarker(center,{draggable : false, title :"You are here"}));*/
+		/*
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+		// alert(latitude+","+longitude);*/
+	}
+	function handle_error(error)
+    {
+	    switch(error.code)
+	    {
+	    case error.PERMISSION_DENIED:
+	      x.innerHTML="User denied the request for Geolocation."
+	      break;
+	    case error.POSITION_UNAVAILABLE:
+	      x.innerHTML="Location information is unavailable."
+	      break;
+	    case error.TIMEOUT:
+	      x.innerHTML="The request to get user location timed out."
+	      break;
+	    case error.UNKNOWN_ERROR:
+	      x.innerHTML="An unknown error occurred."
+	      break;
+	    }	
+	}
+	</script>
+</body>
+</html>
