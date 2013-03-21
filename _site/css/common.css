@@ -1,0 +1,15 @@
+body {
+	background: "black";
+	margin: 0;
+	padding: 0;
+}
+#page {
+	background: "white";
+}
+#header {
+	width: 900px;
+}
+#content {
+	margin: 30px;
+	padding: 8px;
+}
