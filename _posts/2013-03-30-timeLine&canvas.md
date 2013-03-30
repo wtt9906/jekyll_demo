@@ -32,6 +32,6 @@ title: 时间轴sample和random的canvas
 ***
 
 ###另外一件事，今天去世贸天阶，运气好碰到有画插话的设计师，得了一副插画，回头放在博客的适当的位置
-![我和fei的合影]("http://wtt9906.github.com/jekyll_demo/image/feiandme.jpg")
+![我和fei的合影](http://wtt9906.github.com/jekyll_demo/image/feiandme.jpg)
 
 
