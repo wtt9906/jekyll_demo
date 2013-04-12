@@ -77,12 +77,12 @@
 </li>
 
 <li>
-<p>虚线（before）和箭头（after）的位置top：50%，right:0/2%都是相对于ss-left的BFC里的50% 3. 箭头的画法 1. 首先来看一下border的结构 <img alt='border' src='http://wtt9906.github.com/jekyll_demo/image/border.jpg' />, 中间的白色正方形是盒子的内容部分，边长和边的宽度一致，四边的border用不同颜色区分 2. 想象一下，中间区域无限小，长宽都是0px的时候，就剩下四种颜色的边，每条边看起来是个三角形 3. 那么一个方向的边，就是一个箭头</p>
+<p>虚线（before）和箭头（after）的位置top：50%，right:0/2%都是相对于ss-left的BFC里的50% 3. 箭头的画法 1. 首先来看一下border的结构 <img src='http://wtt9906.github.com/jekyll_demo/image/border.jpg' alt='border' />, 中间的白色正方形是盒子的内容部分，边长和边的宽度一致，四边的border用不同颜色区分 2. 想象一下，中间区域无限小，长宽都是0px的时候，就剩下四种颜色的边，每条边看起来是个三角形 3. 那么一个方向的边，就是一个箭头</p>
 
 <ol>
-<li>那么是不是只留下一个边，就是一个箭头了呢，发现并不是那么顺利。先保留内容部分和一条边，我们发现出现的是两个一样大小的方块， <img alt='一条边' src='http://wtt9906.github.com/jekyll_demo/image/border1.jpg' />因为只有一条边，但是增加一条相邻的边呢，两条边相交的地方， <img alt='两条边相交' src='http://wtt9906.github.com/jekyll_demo/image/border2.jpg' />出现了一个我们想要的斜边，也有说，两条相交的border能出现一个斜边</li>
+<li>那么是不是只留下一个边，就是一个箭头了呢，发现并不是那么顺利。先保留内容部分和一条边，我们发现出现的是两个一样大小的方块， <img src='http://wtt9906.github.com/jekyll_demo/image/border1.jpg' alt='一条边' />因为只有一条边，但是增加一条相邻的边呢，两条边相交的地方， <img src='http://wtt9906.github.com/jekyll_demo/image/border2.jpg' alt='两条边相交' />出现了一个我们想要的斜边，也有说，两条相交的border能出现一个斜边</li>
 
-<li>接下来我们让内容部分消失 <img alt='三条边并且没有内容' src='http://wtt9906.github.com/jekyll_demo/image/border3.jpg' /> 6. 现在就明朗了，把上下部分的边，隐藏，就是我们要的箭头了 因为箭头出现在左边，箭头靠右，所以在右边设置一个10px的边，就是箭头的宽度，此时应该是一个长10px，宽5px的长方形，然后把上下border设为透明</li>
+<li>接下来我们让内容部分消失 <img src='http://wtt9906.github.com/jekyll_demo/image/border3.jpg' alt='三条边并且没有内容' /> 6. 现在就明朗了，把上下部分的边，隐藏，就是我们要的箭头了 因为箭头出现在左边，箭头靠右，所以在右边设置一个10px的边，就是箭头的宽度，此时应该是一个长10px，宽5px的长方形，然后把上下border设为透明</li>
 </ol>
 </li>
 
@@ -135,7 +135,7 @@
 <hr />
 <h3 id='id5'>另外一件事，今天去世贸天阶，运气好碰到有画插话的设计师，得了一副插画，回头放在博客的适当的位置</h3>
 
-<p><img alt='我和fei的合影' src='http://wtt9906.github.com/jekyll_demo/image/feiandme.jpg' /></p>
+<p><img src='http://wtt9906.github.com/jekyll_demo/image/feiandme.jpg' alt='我和fei的合影' /></p>
 </div>
 <div id="disqus_thread"></div>
 <script type="text/javascript" src="http://wtt9906.disqus.com/embed.js"></script>

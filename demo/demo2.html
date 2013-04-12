@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>翻滚效果</title>
+	<style type="text/css">
+	body {
+		margin : 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;/*去掉圆点*/
+	}
+	#box {
+		width: 760px;
+		height: 200px;
+		overflow: hidden;
+		position: relative;/*很重要*/
+	}
+	ul {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 1;
+		width: 760px;
+	}
+	ul li {
+		width: 760px;
+		/*display: none;
+		filter:alpha(opacity:0);
+		opacity: 0;*/
+	}
+	.index {
+		z-index: 2;
+		width: 210px;
+		position: absolute;
+		right: 10px;
+		bottom: -10px;
+	}
+	.index li {
+		float: left;/**/
+		width: 20px;
+		height: 20px;
+		background: #fff;
+		color: #f60;
+		margin: 3px;
+		text-align: center;
+	}
+	ol .active {
+		background: #f60;
+		color: #fff;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li class="picture"><img src="images/image1.jpg" alt=""></li>
+			<li class="picture"><img src="images/image2.jpg" alt=""></li>
+			<li class="picture"><img src="images/image3.jpg" alt=""></li>
+			<li class="picture"><img src="images/image4.jpg" alt=""></li>
+			<li class="picture"><img src="images/image5.jpg" alt=""></li>
+			<li class="picture"><img src="images/image6.jpg" alt=""></li>
+		</ul>
+		<ol class="index">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ol>
+	</div>
+	<script type="text/javascript" src="js/move.js"></script>
+	<script type="text/javascript">
+	
+	window.onload = function(){
+		var oOl = document.getElementsByTagName('ol')[0];
+		var aLiOl = oOl.getElementsByTagName('li');
+
+		var oUl = document.getElementsByTagName('ul')[0];
+		var aLiUl = oUl.getElementsByTagName('li');
+
+		var iNow = 0;//0-5
+		var iNow2 = 0;//1-6
+
+		var oBox = document.getElementById('box');
+		var timer = setInterval(go,2000);
+
+		var iHeight = aLiUl[0].offsetHeight;
+		for(var i=0;i<aLiOl.length;i++){
+			aLiOl[i].index = i;//0-5
+			aLiOl[i].onmouseover = function(){
+				iNow = this.index;
+				iNow2 = this.index;
+				for(var i=0;i<aLiOl.length;i++){
+					aLiOl[i].className = '';				
+				}
+				this.className = 'active';
+				startMove(oUl,{top:-iHeight*this.index});
+
+				//aLiUl[this.index].style.display = 'block';
+				//startMove(aLiUl[this.index],{opacity:100});//动画到透明度有1
+			}
+		}
+
+		oBox.onmouseover = function(){
+			clearInterval(timer);
+		}
+		oBox.onmouseout = function(){
+			timer = setInterval(go,2000);
+		}
+		function go(){
+
+			if(iNow == aLiUl.length-1){
+				iNow = 0;
+				aLiUl[0].style.position = 'relative';/*to do 深刻理解relative和absolute和staitc*/
+				aLiUl[0].style.top = aLiUl.length*iHeight+'px';//把第一张图，接到最后面
+			}else{
+				iNow++;
+			}
+			iNow2++;
+			//console.log(iNow2+","+iNow);
+			for(var i=0;i<aLiOl.length;i++){
+				aLiOl[i].className = '';
+			}
+			aLiOl[iNow].className = 'active';
+			
+			startMove(oUl,{top :  -iHeight*iNow2},function(){//向上
+				if(iNow==0){
+					iNow2 = 0;
+					aLiUl[0].style.position = 'static';
+					oUl.style.top = 0;
+					iNow2 = 0;//此后停2s，再下一次
+				}
+				
+			});//动画到透明度有1
+
+		}
+	};
+	
+	</script>
+</body>
+</html>
+
