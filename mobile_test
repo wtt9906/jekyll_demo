@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<script>
+			//antipattern
+			myname = "global";
+			function func(){
+				alert(myname);
+				var myname = "local";
+				alert(myname);
+			}
+			func();
+		</script>
+	</body>
+</html>
