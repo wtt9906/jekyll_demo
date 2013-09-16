@@ -58,7 +58,7 @@
 
 				<h1 id='margin'>关于margin的一些事</h1>
 
-<p>今天在微博上看到<a title='Title' href='http://weibo.com/wintercn?topnav=1&amp;wvr=5&amp;topsug=1'>@寒冬winter</a>关于BFC和IFC的卖萌分享。于是跟着实验了一下。</p>
+<p>今天在微博上看到<a href='http://weibo.com/wintercn?topnav=1&amp;wvr=5&amp;topsug=1' title='Title'>@寒冬winter</a>关于BFC和IFC的卖萌分享。于是跟着实验了一下。</p>
 
 <p>关于块级元素和行内元素以前在绿色css的书里看过了，但是走马观花，印象并不是很深刻。 印象很深的就是：连续的行内元素在页面的BFC里，其实是在一个匿名box里 不过关于最后一个“小透明”的例子，有些不解，</p>
 <div class='highlight'><pre><code class='java'><span class='o'>&lt;</span><span class='n'>div</span><span class='o'>&gt;</span>
@@ -70,7 +70,7 @@
 </code></pre></div>
 <p>大神说，因为小透明有overflow：visible这个属性，所以它的子节点p的box就直接是外部的bfc。 我就想，是外面的bfc又怎样 - -b 大神又说，会影响float和边距折叠。。。</p>
 <hr />
-<p>于是就去google了其他资料 这篇也是winter大神的<a title='Title' href='http://www.cnblogs.com/winter-cn/archive/2012/11/16/2772562.html'>谈margin collaping(外边距叠加)</a> 其中最后一个例子,似乎就是小透明的反例</p>
+<p>于是就去google了其他资料 这篇也是winter大神的<a href='http://www.cnblogs.com/winter-cn/archive/2012/11/16/2772562.html' title='Title'>谈margin collaping(外边距叠加)</a> 其中最后一个例子,似乎就是小透明的反例</p>
 <div class='highlight'><pre><code class='java'><span class='o'>&lt;!</span><span class='n'>doctype</span> <span class='n'>HTML</span><span class='o'>&gt;</span>
 <span class='o'>&lt;</span><span class='n'>html</span><span class='o'>&gt;</span>
 <span class='o'>&lt;</span><span class='n'>head</span><span class='o'>&gt;</span>
@@ -102,9 +102,9 @@
 </code></pre></div>
 <p>这个例子里red就没有重叠 大神说这是因为margin不能跨越BFC重叠 结合小透明说的，overflow：visible 那内嵌的块级元素就外面的BFC，那就可以重叠了。。。 也就是说visible的情况下会跟margin重叠，而hidden不会重叠</p>
 
-<p><img src='http://wtt9906.github.com/jekyll_demo/image/margin.png' alt='margin的配图' /> 另外还有一篇<a title='Title' href='http://www.w3help.org/zh-cn/kb/006/'>css盒模型</a>也讲得很详细</p>
+<p><img alt='margin的配图' src='http://wtt9906.github.com/jekyll_demo/image/margin.png' /> 另外还有一篇<a href='http://www.w3help.org/zh-cn/kb/006/' title='Title'>css盒模型</a>也讲得很详细</p>
 <hr />
-<p>还看了<a title='Title' href='http://weibo.com/jieorlin'>一丝yisi</a>的小清新分享<a title='Title' href='http://www.iyunlu.com/view/css-xhtml/55.html'>那些年我们一起清楚过的浮动</a> 了解了清除浮动的通常做法 其中“闭合浮动”的例子3，也是用到overflow：hidden来清除浮动</p>
+<p>还看了<a href='http://weibo.com/jieorlin' title='Title'>一丝yisi</a>的小清新分享<a href='http://www.iyunlu.com/view/css-xhtml/55.html' title='Title'>那些年我们一起清楚过的浮动</a> 了解了清除浮动的通常做法 其中“闭合浮动”的例子3，也是用到overflow：hidden来清除浮动</p>
 
 <p>至此，算明白了winter大神卖萌之作。。。</p>
 <hr />
