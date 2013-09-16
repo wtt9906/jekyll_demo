@@ -1,4 +1,0 @@
-jekyll_demo
-===========
-
-blog

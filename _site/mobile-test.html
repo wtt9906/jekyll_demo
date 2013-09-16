@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		123123
+	</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas</title>
+	<script src="js/modernizr.custom.52988.js"></script>
+</head>
+<body onLoad="draw_grid()">
+</body>
+<canvas id ="grid" width="500" height="375"></canvas>
+<script type="text/javascript">
+function draw_grid(){
+	//if(Modernizr.canvas){
+		var grid_canvas = document.getElementById("grid");
+		if(Modernizr.canvas)
+		{
+			var grid_context = grid_canvas.getContext("2d");
+
+		var my_gradient = grid_context.createLinearGradient(0,0,500,0);
+		my_gradient.addColorStop(0,"green");
+		my_gradient.addColorStop(1,"yellow");
+
+		grid_context.fillStyle = my_gradient;
+		grid_context.fillRect(0,0,500,375);
+		
+		for(var x = 0.5;x<500;x +=10){
+			grid_context.moveTo(x,0);
+			grid_context.lineTo(x,375);
+		}
+		for(var y = 0.5;y<375;y +=10){
+			grid_context.moveTo(0,y);
+			grid_context.lineTo(500,y);
+		}
+		grid_context.strokeSyle="#eee";//灰色
+		grid_context.stroke();
+
+		grid_context.beginPath();
+		//白色
+		grid_context.moveTo(0,40);
+		grid_context.lineTo(240,40);
+		grid_context.moveTo(260,40);
+		grid_context.lineTo(500,40);//x轴
+
+		grid_context.moveTo(495,35);
+		grid_context.lineTo(500,40);
+		grid_context.lineTo(495,45);//箭头
+
+		grid_context.moveTo(60,0);
+		grid_context.lineTo(60,153);
+		grid_context.moveTo(60,173);
+		grid_context.lineTo(60,375);//y轴
+
+		grid_context.moveTo(65,370);
+		grid_context.lineTo(60,375);
+		grid_context.lineTo(55,370);//箭头
+
+		grid_context.strokeSyle="#000";
+		grid_context.stroke();
+
+		//文本
+		grid_context.fillStyle = "#000";
+		grid_context.font = "bold 12px sans-serif";
+		grid_context.fillText("x",248,43);
+		grid_context.fillText("y",58,165);
+
+		grid_context.textBaseline = "top";
+		grid_context.fillText("(0,0)",8,5);
+
+		grid_context.textAlign = "right";
+		grid_context.textBaseline = "bottom";
+		grid_context.fillText("(500,375)",492,370);
+
+		//以后用画圈代替
+		grid_context.beginPath();
+		grid_context.arc(1.5,1.5,3,0,Math.PI*2,false);
+		grid_context.fillStyle = "#000";
+		grid_context.fill();
+		grid_context.fillRect(497,372,3,3);
+
+	}
+	
+	
+}
+
+</script>
+</html>
